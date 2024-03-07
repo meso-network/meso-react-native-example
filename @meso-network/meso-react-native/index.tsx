@@ -44,13 +44,15 @@ const serializeConfiguration = (
   };
 };
 
-const apiHosts: { readonly [key in Environment]: string } = {
-  [Environment.LOCAL]: "http://localhost:5173",
-  [Environment.LOCAL_PROXY]: "http://localhost:4001",
-  [Environment.DEV]: "https://api.dev.meso.plumbing",
-  [Environment.PREVIEW]: "https://api.preview.meso.plumbing",
-  [Environment.SANDBOX]: "https://api.sandbox.meso.network",
-  [Environment.PRODUCTION]: "https://api.meso.network",
+const getBaseUrl = (environment: Environment): string => {
+  switch (environment) {
+    case Environment.SANDBOX:
+      return "https://api.sandbox.meso.network";
+    case Environment.PRODUCTION:
+      return "https://api.meso.network";
+  }
+
+  throw new Error(`Unable to determine host for ${environment}.`);
 };
 
 /**
@@ -80,9 +82,9 @@ export const MesoTransfer = ({
       ref={webViewRef}
       webviewDebuggingEnabled={true}
       source={{
-        uri: `${apiHosts[configuration.environment]}/app?${new URLSearchParams(
-          serializeConfiguration(configuration)
-        )}`,
+        uri: `${getBaseUrl(
+          configuration.environment
+        )}/app?${new URLSearchParams(serializeConfiguration(configuration))}`,
       }}
       onMessage={async (event: WebViewMessageEvent) => {
         // Attempt to parse message

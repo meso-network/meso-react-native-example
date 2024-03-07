@@ -8,11 +8,12 @@ This repo provides a basic [React Native](https://reactnative.dev/) application 
 
 <details>
   <summary><strong>Contents</strong></summary>
+  
 - [meso-react-native](#meso-react-native)
   - [Requirements](#requirements)
     - [Account setup](#account-setup)
   - [Usage](#usage)
-  - [Caveats](#caveats)
+  - [Reference](#reference)
 
 </details>
 
