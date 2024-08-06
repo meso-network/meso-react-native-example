@@ -96,11 +96,15 @@ export const MesoTransfer = ({
             );
 
             if (webViewRef.current) {
-              webViewRef.current.postMessage(
-                JSON.stringify({
+              const data = JSON.stringify({
                   kind: MessageKind.RETURN_SIGNED_MESSAGE_RESULT,
                   payload: { signedMessage: result },
-                })
+              });
+
+              // Post message back to the Meso window from the webview.
+              // https://github.com/react-native-webview/react-native-webview/blob/4a506e366a3f2e3b08b156d547bd118381e2f6b9/docs/Guide.md#the-injectjavascript-method
+              webViewRef.current.injectJavaScript(
+                `window.postMessage(${data})`
               );
             }
           } else {
