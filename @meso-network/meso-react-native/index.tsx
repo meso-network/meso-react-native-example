@@ -47,9 +47,9 @@ const serializeConfiguration = (
 const getBaseUrl = (environment: Environment): string => {
   switch (environment) {
     case Environment.SANDBOX:
-      return "https://api.sandbox.meso.network";
+      return "https://transfer.sandbox.meso.network";
     case Environment.PRODUCTION:
-      return "https://api.meso.network";
+      return "https://transfer.meso.network";
   }
 
   throw new Error(`Unable to determine host for ${environment}.`);
@@ -97,8 +97,8 @@ export const MesoTransfer = ({
 
             if (webViewRef.current) {
               const data = JSON.stringify({
-                  kind: MessageKind.RETURN_SIGNED_MESSAGE_RESULT,
-                  payload: { signedMessage: result },
+                kind: MessageKind.RETURN_SIGNED_MESSAGE_RESULT,
+                payload: { signedMessage: result },
               });
 
               // Post message back to the Meso window from the webview.
