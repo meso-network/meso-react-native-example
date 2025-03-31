@@ -1,5 +1,7 @@
 # meso-react-native
 
+# ⚠️ This integration is no longer supported. If you're interested in integrating Meso, check out the [Standalone integration docs](https://developers.meso.network/guides/standalone-window).
+
 An example integration of Meso's crypto on/off ramp in a React Native WebView.
 
 This repo provides a basic [React Native](https://reactnative.dev/) application that integrates Meso's transfer experience using [react-native-webview](https://github.com/react-native-webview/react-native-webview).
