@@ -1,6 +1,6 @@
 # meso-react-native
 
-# ⚠️ This repo is deprecated and no longer maintained. If you're interested in using Meso in a React Native app, contact [support@meso.network](mailto:support@meso.network).
+# ⚠️ This integration is no longer supported. If you're interested in integrating Meso, check out the [Standalone integration docs](https://developers.meso.network/guides/standalone-window).
 
 An example integration of Meso's crypto on/off ramp in a React Native WebView.
 
